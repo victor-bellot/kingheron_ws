@@ -1,0 +1,8 @@
+prefix=/home/kingheron/kingheron_ws/devel
+
+Name: heron_nmea
+Description: Description of heron_nmea
+Version: 0.1.10
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

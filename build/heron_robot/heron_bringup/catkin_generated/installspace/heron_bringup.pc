@@ -1,0 +1,8 @@
+prefix=/home/kingheron/kingheron_ws/install
+
+Name: heron_bringup
+Description: Description of heron_bringup
+Version: 0.1.10
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

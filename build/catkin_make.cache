@@ -1,0 +1,2 @@
+cloudy:heron/heron_control:heron/heron_description:heron/heron_msgs:heron/heron_srvs:heron_controller:heron_mission:heron_robot/heron_base:heron_robot/heron_bringup:heron_robot/heron_nmea:heron_robot/heron_robot
+-DCATKIN_DEVEL_PREFIX=/home/kingheron/kingheron_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kingheron/kingheron_ws/install -G Unix Makefiles

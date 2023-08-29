@@ -17,7 +17,7 @@
     </node>
 
     <!-- TODO: Eliminate this by compiling the necessary message definitions into heron_base. -->
-    <node pkg="rosserial_python" type="message_info_service.py" name="rosserial_message_info" />
+    <!-- <node pkg="rosserial_python" type="message_info_service.py" name="rosserial_message_info" /> -->
 
     <group if="$(optenv HERON_NO_WIRELESS false)">
       <node ns="wireless" pkg="heron_base" name="no_wifi_lights" type="no_wireless_lights.py" respawn="true" />
@@ -26,7 +26,7 @@
     <group unless="$(optenv HERON_NO_WIRELESS false)">
       <group if="$(optenv USE_SNMP_CHECK_NODE true)">
         <node pkg="heron_base" type="snmp_lights.py" name="wifi_lights">
-          <param name="~ip_addr" value="$(optenv SNMP_IP 192.168.131.50)" />
+          <param name="~ip_addr" value="$(optenv SNMP_IP 192.168.1.1)" />
         </node>
       </group>
 

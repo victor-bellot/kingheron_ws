@@ -1,0 +1,8 @@
+prefix=/home/kingheron/kingheron_ws/devel
+
+Name: cloudy
+Description: Description of cloudy
+Version: 1.6.7
+Cflags: -I/home/kingheron/kingheron_ws/src/cloudy/include
+Libs: -L${prefix}/lib -lcloudy
+Requires: roscpp
