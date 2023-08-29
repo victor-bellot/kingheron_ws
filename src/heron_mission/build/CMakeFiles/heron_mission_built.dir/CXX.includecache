@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/victor/heron_launcher/heron_ws/src/heron_mission/src/planner.cpp
+heron_mission/planner.h
+/home/victor/heron_launcher/heron_ws/src/heron_mission/src/heron_mission/planner.h
+

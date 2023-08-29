@@ -1,0 +1,60 @@
+dt_mission: 0.5  # call the mission controller every dt_mission seconds
+
+# GPS mission
+dist_to_success: 1.0  # in meters
+turn_cone: 0.7854  # pi/4 radians
+
+# Trajectory mission
+torque_scale_yaw: 10.0
+force_scale_vel: 10.0
+
+cmp_scale_e0: 1.0
+cmp_scale_e1: 1.0
+
+drag_coef: 2.0
+
+# Dynamic Wimdow Approach
+sim_tim: 2.0  # amount of time trajectories are simulated in seconds
+
+linear_velocity:
+  count: 3  # number of linear velocity sample
+  vel: 1.0  # in m/s^2 -> how quick linear velocity evolves through time
+  min: 0.5  # in m/s
+  max: +1.5  # in m/s
+
+angular_velocity:
+  count: 5  # number of angular velocity sample
+  vel: 2.0  # in rad/s^2 -> how quick angular velocity evolves through time
+  min: -1.0  # in rad/s
+  max: +1.0  # in rad/s
+
+security_factor:  # security_radius = robot_radius * security_factor
+  count: 3  # number of sample
+  vel: 1.0  # how quick the security factor evolves through time
+  min: 2.0
+  max: 5.0
+
+tree_search_depth: 2  # integer > 0
+futur_impact: 0.33  # in [0, 1]
+dynamic_ceil: 0.5  # such as |v*w| < kvw
+
+robot_radius: 0.8  # in meters -> 80 centimeters
+no_collision_reward: 30.  # at which distance is a non obstacle?
+
+barycenter:
+  goal: 2.0
+  obstacle: 1.0
+  speed: 1.0
+  security: 1.0
+
+# Sensors
+timeout:  # maximal amount of time in seconds until sensor timeout
+  gps: 0.5
+  imu: 0.5
+  velest: 0.5
+
+cov_limit:  # diagonals elements of the covariance matrix -> variances
+  gps_pos: 0.49  # position in meters variance (70 cm)
+  imu_yaw: 0.07  # angular position in radians variance (15deg)
+  imu_lac: 0.04  # angular velocity in radians per seconds variance (0.2rad/s)
+  velest: 0.09  # translation velocity in meters per seconds variance (30cm/s)

@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<robot name="obstacle">
+
+  <material name="green">
+    <color rgba="0 0.8 0 1"/>
+  </material>
+
+  <link name="obstacle_link">
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <!-- <box size="8.0 8.0 2.0"/> -->
+        <sphere radius="5.0"/>
+      </geometry>
+      <material name="green" />
+    </visual>
+
+    <inertial>
+      <origin xyz="0 0 0" />
+      <mass value="1000000.0" />
+      <inertia  ixx="1.0" ixy="0.0"  ixz="0.0"  iyy="1.0"  iyz="0.0"  izz="1.0" />
+    </inertial>
+
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <!-- <box size="8.0 8.0 2.0"/> -->
+        <sphere radius="5.0"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+  <gazebo reference="obstacle_link">
+    <turnGravityOff>true</turnGravityOff>  <!-- Can be replaced by the libuuv_underwater_object_ros_plugin -->
+    <material>Gazebo/Green</material>
+  </gazebo>
+  
+</robot>

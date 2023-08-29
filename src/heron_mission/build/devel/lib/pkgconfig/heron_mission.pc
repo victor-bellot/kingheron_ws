@@ -1,0 +1,8 @@
+prefix=/home/victor/heron_launcher/heron_ws/src/heron_mission/build/devel
+
+Name: heron_mission
+Description: Description of heron_mission
+Version: 0.0.0
+Cflags: -I/home/victor/heron_launcher/heron_ws/src/heron_mission/include
+Libs: -L${prefix}/lib 
+Requires: roscpp cloudy

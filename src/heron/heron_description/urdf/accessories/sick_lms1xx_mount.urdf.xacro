@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find lms1xx)/urdf/sick_lms1xx.urdf.xacro" />
+
+  <xacro:macro name="sick_lms1xx_mount" params="prefix topic suffix_ns">
+
+    <sick_lms1xx frame="${suffix_ns}${prefix}_laser" topic="${suffix_ns}${topic}"
+                update_rate="20" sample_size="360" min_range="0.3" max_range="20.0"
+                min_angle="-3.14159" max_angle="+3.14159" visualize="false"/>
+
+    <link name="${suffix_ns}${prefix}_laser_mount"/>
+
+    <joint name="${suffix_ns}${prefix}_laser_joint" type="fixed">
+      <!-- This offset is from the base of the bracket to the LIDAR's focal point. -->
+      <origin xyz="0 0 0.149" rpy="0 0 0" />
+      <parent link="${suffix_ns}${prefix}_laser_mount" />
+      <child link="${suffix_ns}${prefix}_laser" />
+    </joint>
+
+    <gazebo reference="${suffix_ns}${prefix}_laser_mount">
+      <material>Gazebo/DarkGrey</material>
+    </gazebo>
+
+  </xacro:macro>
+
+</robot>

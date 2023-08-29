@@ -1,0 +1,42 @@
+<launch>
+
+  <arg name="hydro_debug" default="0" />
+  <arg name="config" default="base" />
+  <arg name="simulation" default="false" />
+  <arg name="lidar" default="false" />
+
+  <!-- Vehicle's namespace -->
+  <arg name="namespace" default=""/>
+
+  <group ns="/$(arg namespace)">
+
+    <group if="$(eval namespace == '')">
+      <param name="robot_description"
+             command="$(find heron_description)/scripts/env_run $(find heron_description)/urdf/configs/$(arg config)
+                      $(find xacro)/xacro '$(find heron_description)/urdf/heron.urdf.xacro'
+                      debug:=$(arg hydro_debug) simulation:=$(arg simulation) lidar:=$(arg lidar)" />
+    </group>
+
+    <group unless="$(eval namespace == '')">
+      <param name="robot_description"
+             command="$(find heron_description)/scripts/env_run $(find heron_description)/urdf/configs/$(arg config)
+                      $(find xacro)/xacro '$(find heron_description)/urdf/heron.urdf.xacro'
+                      debug:=$(arg hydro_debug) simulation:=$(arg simulation) lidar:=$(arg lidar)
+                      namespace:=$(arg namespace) suffix_ns:=$(arg namespace)/" />
+    </group>
+
+    <!-- A joint state publisher plugin already is started with the model (at 10Hz???) -->
+
+    <!-- Publish robot model for ROS (default frequency is 50Hz) -->
+    <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="true" output="screen">
+      <param name="publish_frequency" type="double" value="50" />
+    </node>
+
+    <!-- Launch a node to convert LaserScan into PointCloud -->
+    <node name="scan2cloud_node" pkg="cloudy" type="scan_to_cloud">
+      <param name="scan_topic_name" type="string" value="$(arg namespace)$(optenv HERON_LASER_TOPIC front/scan)" />
+    </node>
+  
+  </group>
+
+</launch>

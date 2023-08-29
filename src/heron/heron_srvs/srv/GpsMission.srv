@@ -1,0 +1,6 @@
+float32 gps_x
+float32 gps_y
+float32 vel
+---
+bool success
+string message

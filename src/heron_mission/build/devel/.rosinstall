@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /home/victor/heron_launcher/heron_ws/src/heron_mission/build/devel/setup.sh
