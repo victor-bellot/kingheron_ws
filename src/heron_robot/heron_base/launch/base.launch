@@ -2,7 +2,7 @@
   <arg name="namespace" value="$(optenv ROBOT_NAMESPACE)" />
 
   <!-- If the IMU does not publish magnetometer data, this should be set to false -->
-  <arg name="use_mag"   default="$(optenv HERON_MAGNETOMETER_ENABLED false)" />
+  <arg name="use_mag"   default="$(optenv HERON_MAGNETOMETER_ENABLED true)" />
 
   <include file="$(find heron_description)/launch/description.launch">
     <arg name="namespace" value="$(arg namespace)" />
@@ -100,6 +100,9 @@
     <node pkg="heron_controller" type="controller" name="controller">
       <rosparam file="$(env HERON_CONTROLLER_CONFIG)" />
     </node>
+
+    <!-- Launch heron planner -->
+    <include file="$(find heron_mission)/launch/visual_planner.launch" ns="/$(arg namespace)"/>
 
   </group>
 
