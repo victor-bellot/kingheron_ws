@@ -90,11 +90,12 @@ void ForceCompensator::pub_thrust_cmd(geometry_msgs::Wrench output) {
     left_thrust = saturate_thrusters(left_thrust);
     right_thrust = saturate_thrusters(right_thrust);
 
-    cmd_output.left = calculate_motor_setting(left_thrust);
-    cmd_output.right = calculate_motor_setting(right_thrust);
+    // Left thruster is invesed
+    cmd_output.left = -calculate_motor_setting(left_thrust);
+    cmd_output.right = +calculate_motor_setting(right_thrust);
     cmd_pub_.publish(cmd_output);
 
-    pub_effective_wrench(left_thrust, right_thrust);
+    pub_effective_wrench(-left_thrust, +right_thrust);
 }
 
 
