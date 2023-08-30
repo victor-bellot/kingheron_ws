@@ -19,8 +19,8 @@ sim_tim: 2.0  # amount of time trajectories are simulated in seconds
 linear_velocity:
   count: 3  # number of linear velocity sample
   vel: 1.0  # in m/s^2 -> how quick linear velocity evolves through time
-  min: 0.5  # in m/s
-  max: +1.5  # in m/s
+  min: -1.0  # in m/s 0.5
+  max: +0.0  # in m/s 1.5
 
 angular_velocity:
   count: 5  # number of angular velocity sample
