@@ -29,17 +29,18 @@ parser = ArgumentParser(description='Process IMU bag file for compass calibratio
 parser.add_argument('bag', metavar='FILE', type=str, help='input bag file')
 parser.add_argument('outfile', metavar='OUTFILE', type=str, help='output yaml file',
                     nargs="?", default="/tmp/calibration.yaml")
-parser.add_argument('namespace', type=str, help='robot namespace', default="")
+# parser.add_argument('namespace', type=str, help='robot namespace', default="")
 parser.add_argument('--plots', type=bool, help='Show plots if matplotlib available.')
 args = parser.parse_args()
 
 if not args.plots:
   pyplot = None
 
-namespace = args.namespace
+# namespace = args.namespace
+# if namespace is not "/":
+#   namespace += "/"
 
-if namespace is not "/":
-  namespace += "/"
+namespace = "/"
 
 bag = rosbag.Bag(args.bag)
 imu_rot = Quaternion(0,0,0,1)
