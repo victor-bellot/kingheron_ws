@@ -38,6 +38,7 @@
     <group if="$(eval arg('namespace') == '')">
       <node pkg="um6" type="um6_driver" name="um6_driver" output="screen">
         <param name="tf_ned_to_enu" value="true"/>
+        <param name="use_magnetic_field_msg" value="true"/>
         <param name="/um6_driver/port" value="$(optenv HERON_IMU_UM6_PORT /dev/clearpath/imu)" />
         <remap from="imu/data" to="imu/data_raw" />
         <param name="lt_model" value="true" />
@@ -49,6 +50,7 @@
     <group unless="$(eval arg('namespace') == '')">
       <node pkg="um6" type="um6_driver" name="um6_driver" output="screen">
         <param name="tf_ned_to_enu" value="true"/>
+        <param name="use_magnetic_field_msg" value="true"/>
         <param name="/um6_driver/port" value="$(optenv HERON_IMU_UM6_PORT /dev/clearpath/imu)" />
         <remap from="imu/data" to="imu/data_raw" />
         <param name="lt_model" value="true" />
