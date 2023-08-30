@@ -34,24 +34,24 @@ parser.add_argument('--plots', type=bool, help='Show plots if matplotlib availab
 args = parser.parse_args()
 
 if not args.plots:
-    pyplot = None
+  pyplot = None
 
 namespace = args.namespace
 
 if namespace is not "/" and namespace is not "":
-    namespace += "/"
+  namespace += "/"
 
 bag = rosbag.Bag(args.bag)
 imu_rot = Quaternion(0,0,0,1)
 transform_found = False
 for topic, msg, time in bag.read_messages(topics=("/tf", "/tf")):
-        for c_trans in msg.transforms:
-		if ((namespace + "base_link") in c_trans.header.frame_id and (namespace + "imu_link") in c_trans.child_frame_id):
-			imu_rot = c_trans.transform.rotation
-			transform_found = True
-			break
-	if (transform_found):
-		break
+  for c_trans in msg.transforms:
+    if ((namespace + "base_link") in c_trans.header.frame_id and (namespace + "imu_link") in c_trans.child_frame_id):
+      imu_rot = c_trans.transform.rotation
+      transform_found = True
+      break
+  if (transform_found):
+    break
 
 temp_q = (imu_rot.x, imu_rot.y, imu_rot.z, imu_rot.w)
 imu_rot = temp_q
@@ -60,14 +60,14 @@ t_mat = matrix(t_array)
 t_mat = t_mat.I
 
 if (not transform_found):
-	print("Transform between base_link and imu_link not found, assuming unity")
+  print("Transform between base_link and imu_link not found, assuming unity")
 
 time_yaw_tuples = []
 for topic, msg, time in bag.read_messages(topics=(namespace + "imu/rpy","/" + namespace + "imu/rpy")):
-	o_msg = matrix([msg.vector.x, msg.vector.y, msg.vector.z, 0])
-	o_msg = o_msg.T
-	transformed_msg = t_mat*o_msg
-	time_yaw_tuples.append((time.to_sec(), float(transformed_msg[2])))
+  o_msg = matrix([msg.vector.x, msg.vector.y, msg.vector.z, 0])
+  o_msg = o_msg.T
+  transformed_msg = t_mat*o_msg
+  time_yaw_tuples.append((time.to_sec(), float(transformed_msg[2])))
 
 
 if len(time_yaw_tuples) < 100:
@@ -99,21 +99,21 @@ if pyplot:
 vecs = []
 for topic, msg, time in bag.read_messages(topics=("/" + namespace + "imu/mag", namespace + "imu/mag")):
   if time.to_sec() > time_start and time.to_sec() < time_end:
-	o_msg = matrix([msg.vector.x, msg.vector.y, msg.vector.z, 0])
-	o_msg = o_msg.T
-	t_msg = t_mat*o_msg
-	vecs.append((float(t_msg[0]), float(t_msg[1]), float(t_msg[2])))
+    o_msg = matrix([msg.magnetic_field.x, msg.magnetic_field.y, msg.magnetic_field.z, 0])
+    o_msg = o_msg.T
+    t_msg = t_mat*o_msg
+    vecs.append((float(t_msg[0]), float(t_msg[1]), float(t_msg[2])))
 
 print ("Using data from " + str(time_start) +" to " + str (time_end) + "(" + str(time_end - time_start) + " seconds), or " + str(len(vecs)) + " samples.")
 
 def calc_R(xc, yc):
-    """ calculate the distance of each 2D points from the center (xc, yc) """
-    return hypot(x-xc, y-yc)
+  """ calculate the distance of each 2D points from the center (xc, yc) """
+  return hypot(x-xc, y-yc)
 
 def f_2(c):
-    """ calculate the algebraic distance between the 2D points and the mean circle centered at c=(xc, yc) """
-    Ri = calc_R(*c)
-    return Ri - Ri.mean()
+  """ calculate the algebraic distance between the 2D points and the mean circle centered at c=(xc, yc) """
+  Ri = calc_R(*c)
+  return Ri - Ri.mean()
 
 
 x,y,z = zip(*vecs)
