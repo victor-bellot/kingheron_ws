@@ -3,9 +3,6 @@
 
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/devel/include/heron_msgs/Course.h
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/devel/include/heron_msgs/Drive.h
-heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/devel/include/heron_srvs/AskModel.h
-heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/devel/include/heron_srvs/AskModelRequest.h
-heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/devel/include/heron_srvs/AskModelResponse.h
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/devel/include/heron_srvs/DwaMission.h
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/devel/include/heron_srvs/DwaMissionRequest.h
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/devel/include/heron_srvs/DwaMissionResponse.h
@@ -17,13 +14,6 @@ heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kinghe
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/src/cloudy/include/cloudy/trajectory_circle.h
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/src/heron_mission/include/heron_mission/planner.h
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /home/kingheron/kingheron_ws/src/heron_mission/src/planner.cpp
-heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /opt/ros/melodic/include/gazebo_msgs/DeleteModel.h
-heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /opt/ros/melodic/include/gazebo_msgs/DeleteModelRequest.h
-heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /opt/ros/melodic/include/gazebo_msgs/DeleteModelResponse.h
-heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /opt/ros/melodic/include/gazebo_msgs/ModelState.h
-heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /opt/ros/melodic/include/gazebo_msgs/SetModelState.h
-heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /opt/ros/melodic/include/gazebo_msgs/SetModelStateRequest.h
-heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /opt/ros/melodic/include/gazebo_msgs/SetModelStateResponse.h
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point.h
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /opt/ros/melodic/include/geometry_msgs/Point32.h
 heron_mission/CMakeFiles/heron_mission_built.dir/src/planner.cpp.o: /opt/ros/melodic/include/geometry_msgs/PointStamped.h
