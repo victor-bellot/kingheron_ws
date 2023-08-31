@@ -1,0 +1,26 @@
+{
+	"folders": [
+		{
+			"path": "src/heron_robot"
+		},
+		{
+			"path": "src/heron_controller"
+		},
+		{
+			"path": "src/heron_mission"
+		},
+		{
+			"path": "src/heron"
+		}
+	],
+	"settings": {
+		"python.autoComplete.extraPaths": [
+			"/home/victor/kingheron_ws/devel/lib/python2.7/dist-packages",
+			"/opt/ros/melodic/lib/python2.7/dist-packages"
+		],
+		"python.analysis.extraPaths": [
+			"/home/victor/kingheron_ws/devel/lib/python2.7/dist-packages",
+			"/opt/ros/melodic/lib/python2.7/dist-packages"
+		]
+	}
+}
