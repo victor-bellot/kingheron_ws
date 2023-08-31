@@ -1,8 +1,0 @@
-prefix=/home/kingheron/kingheron_ws/install
-
-Name: heron_srvs
-Description: Description of heron_srvs
-Version: 0.0.0
-Cflags: -I${prefix}/include
-Libs: -L${prefix}/lib 
-Requires: std_msgs message_runtime
