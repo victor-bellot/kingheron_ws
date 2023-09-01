@@ -25,7 +25,11 @@ Communication with the robot is achieved by connecting kingfisher's USB hub to t
 
 Since the Jetson nano haven't any built-in WIFI interface, a D-Link DWA-171 AC600 MU-MIMO Wi-Fi USB adapter has been installed using [this](https://gist.github.com/TOTON95/b445509399a0d0314d2bc4079527f5a8) driver.
 
-#### Setup
+#### The current setup
+
+The micro SD card and the Wi-Fi USB adapter can be find the Kingfisher box. The Ubuntu's password for the main user ```kingheron``` is ```vect```.
+
+#### Create a new setup
 
 On a fresh Jetson nano with an official OS installation
 - install ROS melodic
