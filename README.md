@@ -94,14 +94,6 @@ By calling the ```/planner/dwa_mission``` service one can ask the kingfisher to 
 
 ## Sensing mechanism
 
-### IMU
-
-TODO
-
-### GPS, NMEA & navsat
-
-TODO
-
-### LIDAR
-
-TODO
+- IMU
+- GPS, NMEA & navsat
+- LIDAR
